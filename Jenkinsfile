@@ -41,7 +41,7 @@ pipeline {
       stage('Run Tests') {
          steps {
             pwsh(script: """
-               python3 -m pytest ./tests/test_sample.py
+               python3 ./tests/test_sample.py
             """)
          }
       }
