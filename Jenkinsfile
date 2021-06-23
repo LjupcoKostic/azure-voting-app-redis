@@ -38,7 +38,7 @@ pipeline {
       stage('Run Tests') {
          steps {
             pwsh(script: """
-			      #python3 -m unittest ./tests/test_sample.py
+	       #python3 -m unittest ./tests/test_sample.py
                pytest ./tests/test_sample.py
             """)
          }
@@ -56,10 +56,10 @@ pipeline {
 			 dir("$WORKSPACE/azure-vote"){
 			     script{
 				    docker.withRegistry('https://index.docker.io/v1/','DockerHub'){
-					   def image = docker.build('ljupchokostic/jenkins:powershell')
-					   image.push()
-					}
-				 }
+				    def image = docker.build('ljupchokostic/jenkins:powershell')
+				    image.push()
+				    }
+			      }
 			 }		  
 		  }
 	  }
